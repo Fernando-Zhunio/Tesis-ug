@@ -14,7 +14,7 @@ class CreateEventUgsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_ugs', function (Blueprint $table) {
+        Schema::create('ug_events', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
@@ -22,6 +22,8 @@ class CreateEventUgsTable extends Migration
             $table->point('position');
             $table->boolean('status');
             $table->foreignId('user_id');
+            $table->string('url_image');
+
 
         });
     }
