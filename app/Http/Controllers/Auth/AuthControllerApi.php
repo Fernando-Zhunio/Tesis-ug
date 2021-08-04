@@ -9,7 +9,7 @@ class AuthControllerApi extends Controller
 {
 
     public function login(Request $request){
-        return "fernando";
+
         return response()->json($request->all());
     }
 }

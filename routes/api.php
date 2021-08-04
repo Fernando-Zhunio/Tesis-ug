@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'auth'], function () {
-	Route::post('login', 'Auth\AuthControllerApi@login');
+	Route::post('login', 'App\Http\Controllers\Auth\AuthControllerApi@login');
 	Route::post('signup', 'Auth\AuthControllerApi@signup');
 
 	Route::group(['middleware' => 'auth:api'], function () {
