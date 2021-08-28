@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUgNotificationsTable extends Migration
+class CreateSemestersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateUgNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ug_notifications', function (Blueprint $table) {
+        Schema::create('semesters', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description',1000);
-            $table->string('url_image');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateUgNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ug_notifications');
+        Schema::dropIfExists('semesters');
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\EventUg;
+use App\Models\Place;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventUgFactory extends Factory
+class PlaceFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = EventUg::class;
+    protected $model = Place::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,9 @@ class EventUgFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'description'=> $this->faker->text,
+            'location'=>['latitud'=>$this->faker->latitude(), 'longitud'=>$this->faker->longitude()]
         ];
     }
 }

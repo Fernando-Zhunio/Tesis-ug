@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ug_notification extends Model
+class Place extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','description','location'];
+    protected $casts = [
+        'location'=> 'json',
+    ];
 }

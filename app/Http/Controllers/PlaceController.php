@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EventUg;
+use App\Models\Place;
 use Illuminate\Http\Request;
 
-class EventUgController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class EventUgController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EventUg  $eventUg
+     * @param  \App\Models\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function show(EventUg $eventUg)
+    public function show(Place $place)
     {
         //
     }
@@ -52,10 +52,10 @@ class EventUgController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EventUg  $eventUg
+     * @param  \App\Models\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventUg $eventUg)
+    public function edit(Place $place)
     {
         //
     }
@@ -64,10 +64,10 @@ class EventUgController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EventUg  $eventUg
+     * @param  \App\Models\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventUg $eventUg)
+    public function update(Request $request, Place $place)
     {
         //
     }
@@ -75,10 +75,10 @@ class EventUgController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EventUg  $eventUg
+     * @param  \App\Models\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventUg $eventUg)
+    public function destroy(Place $place)
     {
         //
     }

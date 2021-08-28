@@ -21,10 +21,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'auth'], function () {
 	Route::post('login', 'App\Http\Controllers\Auth\AuthControllerApi@login');
-	Route::post('signup', 'Auth\AuthControllerApi@signup');
+	Route::post('signup', 'App\Http\Controllers\Auth\AuthControllerApi@signup');
 
 	Route::group(['middleware' => 'auth:api'], function () {
-		Route::get('logout', 'Auth\AuthControllerApi@logout');
-		Route::get('user', 'Auth\AuthControllerApi@user');
+		Route::get('logout', 'App\Http\Controllers\Auth\AuthControllerApi@logout');
+		Route::get('user', 'App\Http\Controllers\Auth\AuthControllerApi@user');
 	});
 });
+
+// Route::prefix('events')->group(function () {
+//     Route::get('/', 'App\Http\Controllers\EventControllerApi@index');
+//     Route::get('/{id}', 'App\Http\Controllers\EventControllerApi@show');
+//     Route::post('/', 'App\Http\Controllers\EventControllerApi@store');
+//     Route::put('/{id}', 'App\Http\Controllers\EventControllerApi@update');
+//     Route::delete('/{id}', 'App\Http\Controllers\EventControllerApi@destroy');
+// });
+Route::apiResource('events', 'App\Http\Controllers\EventController');
+Route::apiResource('teachers', 'App\Http\Controllers\TeacherController');
+Route::apiResource('students', 'App\Http\Controllers\StudentController');
