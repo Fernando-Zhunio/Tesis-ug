@@ -17,7 +17,8 @@ class TeacherController extends UgController
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-        $this->middleware('auth')->except('store');
+        $this->middleware(['auth:api','role:student|Super Admin'])->except('store');
+
     }
 
     public function index()

@@ -8,9 +8,9 @@ use phpDocumentor\Reflection\Types\Boolean;
 
 class UgController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->except('index');
-    }
+    // public function __construct(){
+    //     $this->middleware('auth')->except('index');
+    // }
 
     /**
      * @param Boolean $success

@@ -18,11 +18,15 @@ class StudentController extends UgController
      */
 
     public function __construct(){
-        $this->middleware('auth')->except('store');
+        $this->middleware(['auth:api','role:student|Super Admin'])->except('store');
     }
+
     public function index()
     {
-
+        $page = request('page', 1);
+        $size = request('size', 10);
+        $students = Student::paginate($size, ['*'], 'page', $page);
+        return $this->responseJson(200, $students);
     }
 
     /**
@@ -54,7 +58,6 @@ class StudentController extends UgController
         $this->validate($request, $ruler);
 
         $studentData = collect($request->all())->only('first_name','last_name','semester_id','career_id');
-
 
         $userData = collect([
             'email'=>$request->email,

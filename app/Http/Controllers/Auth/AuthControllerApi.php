@@ -11,14 +11,6 @@ class AuthControllerApi extends Controller
 {
     use AuthenticatesUsers;
 
-    // public function login(Request $request){
-
-    //     $this->validate($request, $ruler);
-
-    //     return response()->json($request->password);
-    // }
-
-
     public function logout(){}
 
     public function register(Request $request){
@@ -54,10 +46,16 @@ class AuthControllerApi extends Controller
         $token->save();
 
         return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString(),
-            'user'=>$user
+            'success'=>true,
+            'data'=>[
+                'token'=>$tokenResult->accessToken,
+                'token_type'=>'Bearer',
+                'expires_at'=>Carbon::parse(
+                    $tokenResult->token->expires_at
+                )->toDateTimeString(),
+                'user'=>$user
+            ]
+
         ]);
 
     }

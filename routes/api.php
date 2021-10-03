@@ -39,3 +39,6 @@ Route::group(['prefix' => 'auth'], function () {
 Route::apiResource('events', 'App\Http\Controllers\EventController');
 Route::apiResource('teachers', 'App\Http\Controllers\TeacherController');
 Route::apiResource('students', 'App\Http\Controllers\StudentController');
+Route::get('home', 'App\Http\Controllers\HomeController@index');
+Route::get('user', 'App\Http\Controllers\UserController@index');
+

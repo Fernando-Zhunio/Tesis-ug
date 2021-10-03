@@ -14,15 +14,18 @@ class EventController extends UgController
      * @return \Illuminate\Http\Response
      */
 
-     public function __construct(){
-         parent::__construct();
-     }
+    public function __construct()
+    {
+        //  parent::__construct();
+        $this->middleware(['auth:api', 'role:student|teacher|Super Admin'])->except('store');
+    }
+
     public function index()
     {
         $page = request()->page ?? 1;
         $size = request()->size ?? 10;
         $events = Event::paginate($size);
-        return $this->responseJson(true,$events);
+        return $this->responseJson(true, $events);
     }
 
     /**
