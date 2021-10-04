@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
+use App\Models\Career;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +59,19 @@ class AuthControllerApi extends Controller
             ]
 
         ]);
+    }
 
+    public function dataForLogin(){
+        $semester = Semester::all();
+        $career = Career::all();
+
+        return response()->json([
+            'success'=>true,
+            'data'=>[
+                'semester'=>$semester,
+                'career'=>$career
+            ]
+        ]);
     }
 
 }

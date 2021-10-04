@@ -57,14 +57,13 @@ class TeacherController extends UgController
             'email'=>$request->email,
             'password'=>Hash::make($request->password)
         ])->only('email','password');
-        DB::transaction(function () use ($teacherData,$userData) {
+       return DB::transaction(function () use ($teacherData,$userData) {
             $user = User::create($userData->all());
             $teacherData->put('user_id',$user->id);
             $teacher = Teacher::create($teacherData->all());
             return $this->responseJson(true,[collect($user)->concat($teacher)->all()]);
         });
-        return $teacherData->all();
-    //     return response()->json($request);
+
     }
 
     /**

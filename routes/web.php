@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('user', 'App\Http\Controllers\UserController@index');
+Route::get('login', 'App\Http\Controllers\Auth\AuthControllerApi@dataForLogin');
